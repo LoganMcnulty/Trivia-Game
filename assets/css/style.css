@@ -1,0 +1,37 @@
+body{
+    background: url(../images/backgroundBullet.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+
+#game_container{
+    margin:5% auto;
+    height:600px;
+    width: 800px;
+    background: #FFB612;
+    border: grey solid 5px;
+    border-radius:15px;
+    opacity: .95;
+}
+
+#trivia_header{
+    font-size:40px;
+    color: #203731;
+    margin:2% auto;
+    text-align:center;
+}
+
+#initial_start{
+    font-size:30px;
+    color: whitesmoke;
+    background: #203731;
+    margin: 20% auto;
+    width: 30%;
+    text-align:center;
+}
+
+#space{
+    height:1000px;
+}
