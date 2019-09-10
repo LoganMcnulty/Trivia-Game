@@ -32,6 +32,53 @@ body{
     text-align:center;
 }
 
+#timer{
+    font-size:30px;
+    color: whitesmoke;
+    background: #203731;
+    margin: 5% auto;
+    width: 40%;
+    text-align:center;
+    border-radius:15px;
+}
+#question{
+    font-size:30px;
+    color: whitesmoke;
+    background: #203731;
+    margin: 2% auto;
+    width: 80%;
+    text-align:center;
+}
+
+.answer{
+    font-size:30px;
+    color: whitesmoke;
+    background: #203731;
+    margin: 0 auto;
+    padding: 1%;
+    width: 80%;
+    text-align:center;
+}
+
+#right_or_wrong{
+    font-size:30px;
+    color: whitesmoke;
+    background: #203731;
+    margin: 5% auto;
+    width: 40%;
+    text-align:center;
+    border-radius:15px;
+}
+
+#gif{
+    text-align:center;
+}
+
+#timeRemaining {
+    float: right;
+    padding-right: 2%;
+}
+
 #space{
     height:1000px;
 }
