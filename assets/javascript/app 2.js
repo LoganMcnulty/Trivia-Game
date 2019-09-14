@@ -10,16 +10,16 @@ $(document).ready(function(){
             gifWrong: "assets/images/incorrect_one.gif"
         },
         {
-            question:"What is the name of the Packers Stadium?",
-            options:["Lambeau Field","Northwestern Mutual Stadium","Cheese Valley","Lombardi Land"],
-            answerIndex:0,
+            question:"Which QB lead the Packers to their first Super Bowl Victory?",
+            options:["Brett Favre","Bart Starr","Jay Cutler","Don Majkowski"],
+            answerIndex:1,
             gifRight: "assets/images/correct_two.gif",
             gifWrong: "assets/images/incorrect_two.gif"
         },
         {
-            question:"Which QB lead the Packers to their first Super Bowl Victory?",
-            options:["Brett Favre","Bart Starr","Jay Cutler","Don Majkowski"],
-            answerIndex:1,
+            question:"What is the name of the Packers Stadium?",
+            options:["Lambeau Field","Northwestern Mutual Stadium","Cheese Valley","Lombardi Land"],
+            answerIndex:0,
             gifRight: "assets/images/correct_three.gif",
             gifWrong: "assets/images/incorrect_three.gif"
         },
@@ -58,7 +58,7 @@ $(document).ready(function(){
     var userGuess = '';
     var numQuestions = questions.length;
     var gameOn = false;
-    var newArray = [];
+    var answeredQuestions = [];
     var questionHolder = [];
     var pick;
     var index;
@@ -72,7 +72,6 @@ $(document).ready(function(){
     function countDown() {
         timeLeft--;
         $("#timeRemaining").text(timeLeft);
-        // console.log(timeLeft);
 
         //if timer reaches zero, add to incorrect, and stop the timer
         if (timeLeft === 0){
@@ -97,11 +96,12 @@ $(document).ready(function(){
     }
 
 
-//hide the question/answer divs created in the HTML for timer and question
-// $("#timer, #question, .answer").hide();
+//hide these divs in the HTML 
+$("#timer, #question, #answers").hide();
 
 $("#initial_start").on("click",function(){
     $("#initial_start").hide();
+    $("#timer, #question, #answers").show();
     showQuestion();
     startTimer();
 
@@ -141,32 +141,61 @@ function showQuestion(){
         userGuess = parseInt($(this).attr("user-guess"));
 
     //If the index value of the user's guess = the correct answer index...
-    // add to numCorrect, update userGuess to an empty value for the next question, stop the timer, update the #right_or_wrong div, and run the 
         if (userGuess === pick.answerIndex){
+        //+1 to numCorrect
             numCorrect++;
+        //showGif(), and pass userGuess, pick.answerIndex, and pick... See why on line 172
+            var correct = $("<div>");
+            correct.addClass("right_or_wrong");
+            $("#answers").html(correct);
+            stopTimer();
+            showGif(userGuess, pick.answerIndex, pick);
+        //after displaying gif, we update the userGuess, purposely in this order, or the showGif function for userGuess would be empty
             userGuess="";
-            stop();
-            $("#right_or_wrong").text("Correct!")
-            // showGif();
+        //stop the timer
+            
         }
+        //inverse of if statement
         else{
             numWrong++;
-            userGuess=''
-            console.log("numWrong: " + numWrong);
-            stop()
-            $("#right_or_wrong").text("Incorrect!");
-            // showGif();
+            var incorrect = $("<div>")
+            incorrect.addClass("right_or_wrong");
+            $("#answers").html(incorrect)
+            stopTimer();
+            showGif(userGuess, pick.answerIndex, pick);
+            userGuess='';
         }
     });
 };
-// ^Note: Show question needs to include the onclick function for the answers
+
+//function for choosing whether to display "right" or "wrong"
+//**NOTE: we pass updateGif() (user guess, pick.answerIndex, and the pick object),
+// in order for the function to be able to reference them due to Scope
+function updateGif (one, two, three) { 
+    console.log(three);
+    if (one === two){
+    $(".right_or_wrong").html(`Correct! <br> <img src="${three.gifRight}">`)
+    }
+    else{
+        $(".right_or_wrong").html(`Incorrect: The answer is ${three.options[two]} <br> <img src="${three.gifWrong}">`)
+    }
+};
 
 //function for showing gif dependent upon state of game
-function showGif() {
-    $
+function showGif(one, two, three) {
+    updateGif(one, two, three);
+    //push the index of the pick to the answeredQuestions array
 
+    // answeredQuestions.push(pick);
+
+    //remove the index of the answered question from the questions array so that it is not selected again
+    //splice says... ("position of array to be removed", "number of items to be removed from this potion")
+
+    // questions.splice(index,1);
+
+    // update the #gif div to hold the right or wring gif associated with the pick index
 }
 
 
-});
 
+});
