@@ -7,13 +7,12 @@ body{
   }
 
 #game_container{
-    margin:5% auto;
-    height:600px;
+    margin:2% auto;
+    height:650px;
     width: 800px;
     background: #FFB612;
     border: grey solid 5px;
     border-radius:15px;
-    opacity: .95;
 }
 
 #trivia_header{
@@ -36,10 +35,11 @@ body{
     font-size:30px;
     color: whitesmoke;
     background: #203731;
-    margin: 5% auto;
+    margin: 3% auto;
     width: 40%;
     text-align:center;
     border-radius:15px;
+    border: grey solid 5px;
 }
 #question{
     font-size:30px;
@@ -48,9 +48,11 @@ body{
     margin: 2% auto;
     width: 80%;
     text-align:center;
+    border-radius:15px;
+    border: grey solid 5px;
 }
 
-.answer{
+#answers{
     font-size:30px;
     color: whitesmoke;
     background: #203731;
@@ -58,6 +60,20 @@ body{
     padding: 1%;
     width: 80%;
     text-align:center;
+    border-radius:15px;
+    border: grey solid 5px;
+}
+
+button{
+    background:white;
+}
+
+.answerOptions{
+    background: #203731;
+    margin: 0 auto;
+    padding: 1%;
+    width: 80%;
+    margin: 1% auto;
 }
 
 #right_or_wrong{
