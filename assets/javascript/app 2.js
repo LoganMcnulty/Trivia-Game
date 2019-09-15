@@ -15,7 +15,7 @@ $(document).ready(function(){
             question:"How many superbowls have the Packers won?",
             options:["Five","One","Two","Four"],
             answerIndex: 3,
-            gifRight: "assets/images/correct_One.gif",
+            gifRight: "assets/images/correct_one.gif",
             gifWrong: "assets/images/incorrect_one.gif"
         },
         {
